@@ -1,0 +1,14 @@
+p{
+    width: 80vw;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    text-indent: 2em;
+    background-color: #fff;
+    box-shadow: 0px 0px 10 #ccc;
+
+    font-family: Montserrat;
+    font-weight: 600;
+
+    font-size: 5rem;
+}

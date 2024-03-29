@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*  */
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 水平+居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+
+.welcome_ani_text{
+    /* 相对定位 */
+    position: relative;
+    color: #fff;
+    font-size: 62px;
+    /* 字间距 */
+    letter-spacing: 3px;
+    border: qpx solid red;
+    /* 单个字宽度 */
+    width: 65px;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    /* 自定义属性（变量），通过var函数进行调用，这里用来记录字数11个 */
+    --count: 15;
+    /* 执行打字动画：动画名，时长，分步过渡（11步），停在最后一帧 （字数多要加时长） */
+    animation: typing 1.8s steps(var(--count)) forwards infinite;
+    /* 倒影特效 */
+    -webkit-box-reflect: below 1px linear-gradient(transparent 30%, rgba(0, 0, 0, 0.05));
+}
+
+/* 光标 */
+.welcome_ani_text::after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    /* 执行光标动画：动画名，时长，线性，无限次播放 */
+    animation: blink 1s linear infinite;
+}
+
+/* 定义动画，光标闪烁 */
+@keyframes blink{
+    0%,49%{
+        opacity: 0;
+    }
+    50%,100%{
+        opacity: 1;
+    }
+}
+/* 打字动画 */
+@keyframes typing{
+    0%{
+        width: 0;
+    }
+    100%{
+        /* 计算全部显示完的宽度，一个字65px */
+        width: calc(var(--count) * 32px);
+    }
+}
